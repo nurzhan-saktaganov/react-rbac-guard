@@ -9,7 +9,7 @@ function protect(requirement) {
   }
 
   return function(ComponentToProtect) {
-    const isComponent =
+    const isComponent = true ||
       ComponentToProtect &&
       ComponentToProtect.prototype &&
       ComponentToProtect.prototype instanceof Component;

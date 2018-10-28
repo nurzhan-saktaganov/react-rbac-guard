@@ -1,23 +1,70 @@
 {
   "name": "react-rbac-guard",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Module allowing to manage visibility of particular components depending on user credentials",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "./lib/index.js",
+  "engines": {
+    "npm": ">=4"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean-dist": "rm -rf ./lib && mkdir ./lib",
+    "prebuild": "npm run clean-dist",
+    "build": "node tools/build.js"
+  },
+  "author": "Nurzhan Saktaganov <nur92world@mail.ru>",
+  "license": "MIT",
+  "dependencies": {
+    "uglifyjs-webpack-plugin": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-react-constant-elements": "^6.23.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "chai": "^4.0.2",
+    "chai-as-promised": "^7.1.0",
+    "chai-enzyme": "^0.8.0",
+    "chalk": "^2.0.1",
+    "coveralls": "^3.0.2",
+    "enzyme": "^2.9.1",
+    "eslint-watch": "^3.1.2",
+    "html-webpack-plugin": "^2.29.0",
+    "husky": "^1.0.0-rc.15",
+    "isparta": "^4.0.0",
+    "jsdom": "^11.2.0",
+    "mocha": "^3.4.2",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.2",
+    "sinon": "^2.3.6",
+    "sinon-chai": "^2.11.0",
+    "webpack": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": ">0.14.0 || >15.0.0",
+    "react-dom": ">0.14.0 || >15.0.0"
+  },
+  "keywords": [
+    "react",
+    "rbac",
+    "permission",
+    "guard",
+    "protect",
+    "conditional render"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nurzhan-saktaganov/react-rbac-guard.git"
   },
-  "keywords": [
-    "rbac",
-    "guard",
-    "protect",
-    "congitional render"
-  ],
-  "author": "Nurzhan Saktaganov <nur92world@mail.ru>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nurzhan-saktaganov/react-rbac-guard/issues"
   },

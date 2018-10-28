@@ -2,6 +2,8 @@
 
 `react-rbac-guard` is a module allowing to manage visibility of particular components depending on user credentials (or current permissions set). Module uses approach that was inspired by "react-redux-connect" module.
 
+__The package currently in the early development stage.__
+
 ## Dependensies ##
 
 React RBAC requires either React [new context API](https://reactjs.org/docs/context.html) or React [legacy context API](https://reactjs.org/docs/legacy-context.html) support.
@@ -10,7 +12,7 @@ Module tries to use new context API (React version >= 16.3) if available. Otherw
 ## Installation ##
 
 ```bash
-#TODO
+$> npm install react-rbac-guard
 ```
 
 ## Integration in 5 easy steps ##
@@ -149,7 +151,7 @@ const credentials = new Credentials(...);
 
 ## Demo ##
 
-To see demos please visit [TODO].
+To see demos please visit [https://codesandbox.io/s/znmxlw59jm](https://codesandbox.io/s/znmxlw59jm).
 
 
 ## License ##
