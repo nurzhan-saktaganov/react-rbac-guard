@@ -28,7 +28,7 @@ class Need extends Requirement {
   }
 
   isSatisfied(credentials) {
-    // assume credentilas is an object
+    // assume credentials is an object
     return credentials[this.permission] ? true : false;
   }
 }
@@ -137,7 +137,7 @@ class Credentials {
 class MyRequirement extends Requirement {
   ...
   isSatisfied(credentials) {
-    return credentilas.satisfies(this);
+    return credentials.satisfies(this);
   }
 }
 
