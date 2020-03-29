@@ -7,15 +7,15 @@ import CredentialProvider from "./CredentialProvider";
 import guardFactory from "./guardFactory";
 import protect from "./protect";
 
-function all(...requirements: any[]) {
-  return new RequirementAll(...requirements);
+function all(...requirements: Requirement[]) {
+  return new RequirementAll(requirements);
 }
 
-function any(...requirements: any[]) {
-  return new RequirementAny(...requirements);
+function any(...requirements: Requirement[]) {
+  return new RequirementAny(requirements);
 }
 
-function not(requirement: any[]) {
+function not(requirement: Requirement) {
   return new RequirementNot(requirement);
 }
 

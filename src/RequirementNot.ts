@@ -1,13 +1,15 @@
 import RequirementPredicate from "./RequirementPredicate";
+import Requirement from "./Requirement";
 
-class RequirementNot extends RequirementPredicate {
-  constructor(requirements: any) {
-    super(...[requirements]);
-    this.requirements = requirements;
+class RequirementNot implements RequirementPredicate {
+  requirement: Requirement;
+
+  constructor(requirement: Requirement) {
+    this.requirement = requirement;
   }
 
   isSatisfied(credentials: any) {
-    return !this.requirements.isSatisfied(credentials);
+    return !this.requirement.isSatisfied(credentials);
   }
 }
 

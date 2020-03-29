@@ -1,16 +1,6 @@
-class Requirement {
-  requirements: any;
+abstract class Requirement {
 
-  constructor() {
-    if (new.target === Requirement) {
-      throw new TypeError("Cannot construct Requirement instances directly");
-    }
-    this.isSatisfied = this.isSatisfied.bind(this);
-  }
-
-  isSatisfied(credentials: any): boolean {
-    throw new Error("Must override isSatisfied");
-  }
+  abstract isSatisfied(credentials: any): boolean;
 }
 
 export default Requirement;

@@ -18,17 +18,13 @@ function protect(requirement: Requirement) {
       throw new TypeError("expected a class derived from React.Component");
     }
 
-    return class extends React.Component {
-      render() {
-        return (
-          <Guard requirement={requirement}>
-            <ComponentToProtect {...this.props}>
-              {this.props.children}
-            </ComponentToProtect>
-          </Guard>
-        );
-      }
-    };
+    return (
+      <Guard requirement={requirement}>
+        <ComponentToProtect {...this.props}>
+          {this.props.children}
+        </ComponentToProtect>
+      </Guard>
+    );
   };
 }
 

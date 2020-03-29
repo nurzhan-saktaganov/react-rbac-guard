@@ -3,16 +3,12 @@ import * as React from "react";
 import Requirement from "./Requirement";
 import Guard from "./Guard";
 
-function guardFactory(requirement: Requirement): React.ComponentClass {
+function guardFactory(requirement: Requirement): JSX.Element {
   if (!(requirement instanceof Requirement)) {
     throw new TypeError("requirement is expected to be Requirement instance");
   }
 
-  return class extends React.Component {
-    render() {
-      return <Guard requirement={requirement}>{this.props.children}</Guard>;
-    }
-  };
+  return <Guard requirement={requirement}>{this.props.children}</Guard>;
 }
 
 export default guardFactory;
