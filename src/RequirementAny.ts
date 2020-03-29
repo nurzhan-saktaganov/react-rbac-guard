@@ -1,8 +1,8 @@
 import RequirementPredicate from "./RequirementPredicate";
 
 class RequirementAny extends RequirementPredicate {
-  isSatisfied(credentials) {
-    return this.requirements.some(r => r.isSatisfied(credentials));
+  isSatisfied(credentials: any) {
+    return this.requirements.some((r: any) => r.isSatisfied(credentials));
   }
 }
 

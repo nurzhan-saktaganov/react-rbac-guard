@@ -1,7 +1,8 @@
 import Requirement from "./Requirement";
 
 class RequirementPredicate extends Requirement {
-  constructor(...requirements) {
+
+  constructor(...requirements: any) {
     super();
     if (new.target === RequirementPredicate) {
       throw new TypeError(
@@ -13,7 +14,7 @@ class RequirementPredicate extends Requirement {
       throw new Error("No requirement has been provided");
     }
 
-    if (requirements.some(r => !(r instanceof Requirement))) {
+    if (requirements.some((r: any) => !(r instanceof Requirement))) {
       throw new Error(
         "requirements are expected to be instances of 'Requirement'"
       );

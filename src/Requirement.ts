@@ -1,4 +1,6 @@
 class Requirement {
+  requirements: any;
+
   constructor() {
     if (new.target === Requirement) {
       throw new TypeError("Cannot construct Requirement instances directly");
@@ -6,7 +8,7 @@ class Requirement {
     this.isSatisfied = this.isSatisfied.bind(this);
   }
 
-  isSatisfied(credentials) {
+  isSatisfied(credentials: any): boolean {
     throw new Error("Must override isSatisfied");
   }
 }
