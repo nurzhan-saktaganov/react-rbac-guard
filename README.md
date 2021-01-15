@@ -1,3 +1,5 @@
+[![](https://data.jsdelivr.com/v1/package/npm/react-rbac-guard/badge)](https://www.jsdelivr.com/package/npm/react-rbac-guard)
+
 # React RBAC Guard #
 
 `react-rbac-guard` is a module allowing to manage visibility of particular components depending on user credentials (or current permissions set). Module uses approach that was inspired by "react-redux-connect" module.
