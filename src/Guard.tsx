@@ -1,11 +1,14 @@
-import React, { Component } from "react";
+import * as React from "react";
 
-import createReactContext from "./createContext.jsx";
+import createReactContext from "./createContext";
 import Requirement from "./Requirement";
 
-const { Provider, Consumer } = createReactContext();
+const { Consumer } = createReactContext();
 
-class Guard extends Component {
+type GuardProps = {
+  requirement: Requirement
+}
+export default class Guard extends React.Component<GuardProps> {
   render() {
     const { requirement } = this.props;
 
@@ -15,7 +18,7 @@ class Guard extends Component {
 
     return (
       <Consumer>
-        {credentials =>
+        {(credentials: any) =>
           requirement.isSatisfied(credentials) ? this.props.children : null
         }
       </Consumer>
@@ -23,4 +26,4 @@ class Guard extends Component {
   }
 }
 
-export { Guard, Provider };
+// export { Guard, Provider };

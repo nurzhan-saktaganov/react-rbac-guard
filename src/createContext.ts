@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import * as React from "react";
 
-import PropTypes from "prop-types";
+import * as PropTypes from "prop-types";
 
-function generateToken(length) {
+function generateToken(length: number): string {
   const symbolSet =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let token = "";
@@ -15,8 +15,8 @@ function generateToken(length) {
   return token;
 }
 
-let reservedToken = {};
-function uniqueToken(length) {
+let reservedToken: any = {};
+function uniqueToken(length: number) {
   let token;
   do {
     token = generateToken(length);
@@ -25,15 +25,20 @@ function uniqueToken(length) {
   return token;
 }
 
+type ConsumerProps = {
+  children: any // TODO change to a true type
+}
+
 // This is just polyfill to emulate new context API using legacy API.
 // NOTE: it does not support default value.
-function createContext(defaultValue) {
+function createContext(defaultValue?: any) {
   const TOKEN_LENGTH = 32;
   const token = uniqueToken(TOKEN_LENGTH);
-  let contextTypes = {};
+  let contextTypes: any = {};
   contextTypes[token] = PropTypes.any;
 
-  class Consumer extends Component {
+  class Consumer extends React.Component<ConsumerProps> {
+    static contextTypes: any;
     render() {
       const credentials = this.context[token];
 
@@ -52,10 +57,13 @@ function createContext(defaultValue) {
   }
 
   Consumer.contextTypes = contextTypes;
-
-  class Provider extends Component {
+  type ProviderProps = {
+    value: any
+  }
+  class Provider extends React.Component<ProviderProps> {
+    static childContextTypes: any;
     getChildContext() {
-      let context = {};
+      let context: any = {};
       context[token] = this.props.value;
       return context;
     }
@@ -70,7 +78,7 @@ function createContext(defaultValue) {
   return { Provider, Consumer };
 }
 
-export default function(defaultValue) {
+export default function (defaultValue?: any) {
   // Try to use new context API, fallback to legacy API otherwise.
   const func = React.createContext || createContext;
   return func(defaultValue);
